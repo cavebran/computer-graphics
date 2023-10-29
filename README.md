@@ -4,33 +4,29 @@
 
 <!---Shields em: https://shields.io --->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/cavebran/cg-atividade-1?style=for-the-badge&label=tamanho%20do%20repo&color=red)
-![GitHub contributors](https://img.shields.io/github/contributors/cavebran/cg-atividade-1?style=for-the-badge&label=colaboradores&color=red)
-![GitHub stars](https://img.shields.io/github/stars/cavebran/cg-atividade-1?style=for-the-badge&label=estrelas&color=red)
+![GitHub repo size](https://img.shields.io/github/repo-size/cavebran/computer-graphics?style=for-the-badge&label=tamanho%20do%20repo&color=red)
+![GitHub contributors](https://img.shields.io/github/contributors/cavebran/computer-graphics?style=for-the-badge&label=colaboradores&color=red)
+![GitHub stars](https://img.shields.io/github/stars/cavebran/computer-graphics?style=for-the-badge&label=estrelas&color=red)
 
 <!-- LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/cavebran/cg-atividade-1">
-    <img src="https://www.flagcolorcodes.com/data/flag-of-france.png" alt="Logo" width="100" height="66">
-    <img src=https://www.flagcolorcodes.com/data/Flag-of-England.png" alt="Logo" width="100" height="66">
-    <img src="https://www.flagcolorcodes.com/data/flag-of-colombia.png" alt="Logo" width="100" height="66">
+    <img src="https://noticiasetecnologia.com/wp-content/uploads/2019/03/Ray-Tracing-logo-1140x641.jpg" alt="Logo" width="285" height="160">
   </a>
-
-  <h3 align="center">Computação Gráfica - Atividade 1</h3>
 </div>
-<br />
-<br />
 
-## 📜 Exercício de Computação Gráfica - Geração de Imagens PPM 🖌️🌈
+## 📜 Propósito do repositório
 
-Este repositório contém um exercício prático da disciplina de Computação Gráfica, no qual exploramos a criação de imagens básicas no formato PPM (Portable Pixmap). O objetivo desse exercício é entender os princípios fundamentais de geração de imagens raster, aprendendo a criar imagens simples com cores e formas. 🖼️💡
-O programa em C++ foi feito com tema de bandeiras. No momento, oferecemos suporte para as bandeiras da França, Inglaterra e Colômbia.
+Este repositório é dedicado ao armazenamento de atividades relacionadas à disciplina de Computação Gráfica. O principal objetivo desta disciplina é proporcionar uma compreensão abrangente das técnicas de computação gráfica, com um foco especial no funcionamento do método de ray tracing. A princípio a linguagem principal a ser utilizada em todas as atividades é C++, juntamente com bibliotecas já existentes e bibliotecas que serão criadas ao longo da disciplina.
 
-## ⚙️ Desenvolvido com
+## ⚙️ Ferramentas utilizadas no desenvolvimento
 
 Links úteis para o desenvolvimento do projeto:
 * [C++](https://devdocs.io/cpp/)
+* [Bazel](https://bazel.build/)
+* [Doxygen](https://www.doxygen.nl/manual/index.html)
+* [Google Test](https://github.com/google/googletest)
 * [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 
 <p align="right"><a href="#top">↑</a></p>
@@ -38,24 +34,38 @@ Links úteis para o desenvolvimento do projeto:
 ## 🚀 Como Compilar e Executar
 
 ### Pré-requisitos
-- Certifique-se de ter o compilador g++ instalado em seu sistema. Você pode encontrar instruções de instalação na documentação do [g++](https://gcc.gnu.org/onlinedocs/).
-- Certifique-se de estar no diretório raiz para que este comando funcione corretamente
+- Certifique-se de ter a ferramenta auxiliar de compilação [**Bazel**](https://bazel.build/), instalada em seu ambiente de desenvolvimento. Versão utilizada no projeto - **6.3.2**.
 
-### Compilando
-- Para compilar, troque `[nome_da_bandeira]` pelo nome da bandeira de sua escolha, como `colombia` por exemplo.
+### Como compilar uma atividade:
+**&#8594; Para compilar:**  Em seu terminal execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada (*exemplo:* `activity-1`) e `[activity_main]` pelo arquivo principal de execução (*exemplo:* `colombia`). 
 ```shell
-g++ -o src/[nome_da_bandeira]/[nome_da_bandeira] lib/src/Image.cpp lib/src/Pixel.cpp src/[nome_da_bandeira]/[nome_da_bandeira].cpp
+bazel build [activity_name]/src/main:[activity_main]
 ```
 
-### Executando
-- Para executar, troque `[nome_da_bandeira]` pelo nome da bandeira de sua escolha, como `colombia` por exemplo.
-```shell
-./src/[nome_da_bandeira]/[nome_da_bandeira] > ./src/[nome_da_bandeira]/[nome_da_bandeira].ppm
-```
-- O redirecionamento da saída `> ./src/[nome_da_bandeira]/[nome_da_bandeira].ppm` permite que a imagem gerada seja salva em um arquivo .ppm com o mesmo nome da bandeira, porém a saída é livre para personalizações de nome e outros.
+**&#8594; O binário gerado fica localizado em:** <br/>
+`bazel-bin/[activity_name]/src/main/[activity_main]`
 
-### Converter PPM para JPG
-- Para que possa ser possível visualizar a imagem graficamente, foi utilizado um website ([PPM Viewer](https://www.cs.rhodes.edu/welshc/COMP141_F16/ppmReader.html)) que faz a conversão de .ppm para .jpg.
+> `bazel-bin` é um diretório criado automaticamente pela sucesso da execução do comando `bazel build` ou `bazel run`.
+<hr>
+
+### Como executar uma atividade:
+Existem duas opções ao executar uma atividade, direto pelo bazel, ou utilizando o binário gerado através do comando `bazel build` descrito no tópico de *"Como compilar uma atividade"*.
+
+**&#8594; Método tradicional:** Chame o mecanismo padrão de execução do Linux, apontando o caminho para o arquivo binário compilado.
+
+**&#8594; Utilizando Bazel:** Em seu terminal execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada (*exemplo:* `activity-1`) e `[activity_main]` pelo arquivo principal de execução (*exemplo:* `colombia`). 
+```shell
+bazel run [activity_name]/src/main:[activity_main]
+```
+
+## 📎Guias e referências extras
+Bazel Project Structure Reference: 
+- [Github Bazel Template (C++)](https://github.com/ourarash/cpp-template)
+- [GTest, GLog, Starter Bazel Repo Youtube Video Guide](https://www.youtube.com/watch?v=JfOzsBi_irY&ab_channel=arisaif)
+- [Bazel Template (C++) Youtube Video Guide](https://www.youtube.com/watch?v=kLLDzLWzuag&ab_channel=arisaif)
+- [How to Debug in VSCode with Bazel (C++)](https://www.youtube.com/watch?v=-TUogVOs1Qg&ab_channel=arisaif)
+- [Google Test for C++ using Bazel](https://google.github.io/googletest/quickstart-bazel.html)
+
 
 <hr>
 
