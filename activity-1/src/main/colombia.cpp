@@ -24,5 +24,5 @@ int main() {
 		}
 	}
 
-	colombia.saveToPPM();
+	colombia.saveToPPM("colombia.ppm");
 }

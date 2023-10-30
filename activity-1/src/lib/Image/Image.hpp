@@ -2,6 +2,7 @@
 #define IMAGE_HPP
 
 #include "../Pixel/Pixel.hpp"
+
 #include <vector>
 
 class Image {
@@ -31,7 +32,9 @@ public:
 	 * @brief Save image to .ppm format
 	 * 
 	 */
-  void saveToPPM();
+  void saveToPPM(std::string fileName);
+
+	void SaveToJpeg(std::string fileName);
 };
 
 #endif
