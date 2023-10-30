@@ -22,6 +22,13 @@ double Vec3::length_squared() const {
   return e[0]*e[0] + e[1]*e[1] + e[2]*e[2];
 }
 
+std::string Vec3::to_string() {
+	std::ostringstream ss;
+	ss << e[0] << " " << e[1] << " " << e[2];
+
+	return ss.str();
+}
+
 // Operators Overloadings
 double Vec3::operator[](int i) const {
 	return e[i];
@@ -38,15 +45,11 @@ Vec3& Vec3::operator+=(const Vec3 &v) {
 
 	return *this;
 }
-Vec3& Vec3::operator+(const Vec3 &v) {
-	Vec3 result(e[0] + v.e[0], e[1] + v.e[1], e[2] + v.e[2]);
-
-	return result;
+Vec3 Vec3::operator+(const Vec3 &v) {
+	return Vec3(e[0] + v.e[0], e[1] + v.e[1], e[2] + v.e[2]);
 }
-Vec3& Vec3::operator+(double t) {
-	Vec3 result(e[0] + t, e[1] + t, e[2] + t);
-
-	return result;
+Vec3 Vec3::operator+(double t) {
+	return Vec3(e[0] + t, e[1] + t, e[2] + t);
 }
 
 Vec3& Vec3::operator*=(const Vec3 &v) {
@@ -56,19 +59,15 @@ Vec3& Vec3::operator*=(const Vec3 &v) {
 	
 	return *this;
 }
-Vec3& Vec3::operator*(const Vec3 &v) {
-	Vec3 result(e[0] * v.e[0], e[1] * v.e[1], e[2] * v.e[2]);
-
-	return result;
+Vec3 Vec3::operator*(const Vec3 &v) {
+	return Vec3(e[0] * v.e[0], e[1] * v.e[1], e[2] * v.e[2]);
 }
-Vec3& Vec3::operator*(double t) {
-	Vec3 result(e[0] * t, e[1] * t, e[2] * t);
-
-	return result;
+Vec3 Vec3::operator*(double t) {
+	return Vec3(e[0] * t, e[1] * t, e[2] * t);
 }
 
 Vec3& Vec3::operator/=(const Vec3 &v) {
-	if(v.e[0] == v.e[1] == v.e[2] == 0) {
+	if(v.e[0] == 0 || v.e[1] == 0 || v.e[2] == 0) {
 		throw "Division by zero";
 	}
 
@@ -78,23 +77,19 @@ Vec3& Vec3::operator/=(const Vec3 &v) {
 	
 	return *this;
 }
-Vec3& Vec3::operator/(const Vec3 &v) {
-	if(v.e[0] == v.e[1] == v.e[2] == 0) {
+Vec3 Vec3::operator/(const Vec3 &v) {
+	if(v.e[0] == 0 || v.e[1] == 0 || v.e[2] == 0) {
 		throw "Division by zero";
 	}
 
-	Vec3 result(e[0] / v.e[0], e[1] / v.e[1], e[2] / v.e[2]);
-
-  return result;
+	return Vec3(e[0] / v.e[0], e[1] / v.e[1], e[2] / v.e[2]);
 }
-Vec3& Vec3::operator/(double t) {
+Vec3 Vec3::operator/(double t) {
 	if(t == 0) {
     throw "Division by zero";
   }
 
-  Vec3 result(e[0] / t, e[1] / t, e[2] / t);
-
-  return result;
+  return Vec3(e[0] / t, e[1] / t, e[2] / t);
 }
 
 std::ostream& operator<<(std::ostream &out, const Vec3 &v) {

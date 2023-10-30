@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_test")
+
+cc_test(
+	name = "Vec3Lib_test",
+	srcs = ["Vec3Lib_test.cpp"],
+	deps = [
+		"//activity-2/src/lib/Vec3:Vec3Lib",
+		"@googletest//:gtest_main"
+	]
+)

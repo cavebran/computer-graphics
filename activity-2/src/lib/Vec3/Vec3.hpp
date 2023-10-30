@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 using std::sqrt;
 
@@ -54,8 +55,15 @@ class Vec3 {
 		*/
 		double length_squared() const;
 
-		// Operators Overloadings
+		/**
+		 * @brief convert x, y and z values to string
+		 * 
+		 * @return std::string 
+		 */
+		std::string to_string();
 
+
+		// Operators Overloadings
 		/**
 		 * @brief Easy access to Vec3 vector position value
 		 * 
@@ -85,7 +93,7 @@ class Vec3 {
 		 * @param v Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator+(const Vec3 &v);
+		Vec3 operator+(const Vec3 &v);
 
 		/**
 		 * @brief Sum Vec3 vector values by a constant t value
@@ -93,7 +101,7 @@ class Vec3 {
 		 * @param t double - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator+(double t);
+		Vec3 operator+(double t);
 
 		/**
 		 * @brief Accumulate (multiply) into Vec3 vector, another Vec3 vector 
@@ -109,7 +117,7 @@ class Vec3 {
 		 * @param v Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator*(const Vec3 &v);
+		Vec3 operator*(const Vec3 &v);
 
 		/**
 		 * @brief Multiply Vec3 vector values by a constant t value
@@ -117,7 +125,7 @@ class Vec3 {
 		 * @param t double - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator*(double t);
+		Vec3 operator*(double t);
 
 		/**
 		 * @brief Accumulate (divide) into Vec3 vector, another Vec3 vector 
@@ -133,7 +141,7 @@ class Vec3 {
 		 * @param v Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator/(const Vec3 &v);
+		Vec3 operator/(const Vec3 &v);
 
 
 		/**
@@ -142,7 +150,7 @@ class Vec3 {
 		 * @param t double - Operation right side
 		 * @return Vec3& 
 		 */
-		Vec3& operator/(double t);
+		Vec3 operator/(double t);
 
 		/**
 		 * @brief 
