@@ -3,18 +3,22 @@
 
 #include <string>
 
+/**
+ * @brief Implements funcionalities to create pixels
+ * 
+ */
 class Pixel {
 public:
-  int r; // red
-	int g; // green
-	int b; // blue
+  int r;
+	int g;
+	int b;
 
   /**
    * @brief Construct a new Pixel object
    * 
-   * @param red red amount value
-   * @param green green amount value
-   * @param blue blue amount value
+   * @param red:int - red amount value
+   * @param green:int - green amount value
+   * @param blue:int - blue amount value
    */
   Pixel(int red = 0, int green = 0, int blue = 0);
 

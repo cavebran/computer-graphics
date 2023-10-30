@@ -2,9 +2,12 @@
 #define IMAGE_HPP
 
 #include "../Pixel/Pixel.hpp"
-
 #include <vector>
 
+/**
+ * @brief Implements funcionalities to create images
+ * 
+ */
 class Image {
 public:
   int width;
@@ -14,17 +17,17 @@ public:
 	/**
 	 * @brief Construct a new Image object
 	 * 
-	 * @param w Image width
-	 * @param h Image height
+	 * @param w:int - Image width
+	 * @param h:int - Image height
 	 */
   Image(int w, int h);
 
   /**
    * @brief Set the Pixel object
    * 
-   * @param x x Pixel coordinate 
-   * @param y y Pixel coordinate
-   * @param pixel Pixel object 
+   * @param x:int - x Pixel coordinate 
+   * @param y:int - y Pixel coordinate
+   * @param pixel:Pixel - Pixel object 
    */
   void setPixel(int x, int y, Pixel pixel);
 
@@ -34,6 +37,11 @@ public:
 	 */
   void saveToPPM(std::string fileName);
 
+	/**
+	 * @brief Save image to .jpeg format
+	 * 
+	 * @param fileName: std::string - file name to save
+	 */
 	void SaveToJpeg(std::string fileName);
 };
 

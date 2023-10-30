@@ -7,6 +7,10 @@
 
 using std::sqrt;
 
+/**
+ * @brief Class to handle 3 points vectors
+ * 
+ */
 class Vec3 {
 	public:
 		double e[3];
@@ -14,9 +18,9 @@ class Vec3 {
 		/**
 		 * @brief Construct a new Vec3 object
 		 * 
-		 * @param e0 e0 value = 0.0
-		 * @param e1 e1 value = 0.0
-		 * @param e2 e2 value = 0.0
+		 * @param e0:double - e[0] value = 0.0
+		 * @param e1:double - e[1] value = 0.0
+		 * @param e2:double - e[2] value = 0.0
 		 */
 		Vec3(double e0 = 0.0, double e1 = 0.0, double e2 = 0.0);
 
@@ -58,7 +62,7 @@ class Vec3 {
 		/**
 		 * @brief convert x, y and z values to string
 		 * 
-		 * @return std::string 
+		 * @return std::string : x, y and z values concatenated to string
 		 */
 		std::string to_string();
 
@@ -67,7 +71,7 @@ class Vec3 {
 		/**
 		 * @brief Easy access to Vec3 vector position value
 		 * 
-		 * @param i Vec3 vector attribute index position
+		 * @param i:int - Vec3 vector attribute index position
 		 * @return double 
 		 */
 		double operator[](int i) const;
@@ -82,7 +86,7 @@ class Vec3 {
 		/**
 		 * @brief Accumulate (sum) into Vec3 vector, another Vec3 vector 
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3& operator+=(const Vec3 &v);
@@ -90,7 +94,7 @@ class Vec3 {
 		/**
 		 * @brief Sum two Vec3 vectors values
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator+(const Vec3 &v);
@@ -98,7 +102,7 @@ class Vec3 {
 		/**
 		 * @brief Sum Vec3 vector values by a constant t value
 		 * 
-		 * @param t double - Operation right side
+		 * @param t:double - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator+(double t);
@@ -106,7 +110,7 @@ class Vec3 {
 		/**
 		 * @brief Accumulate (multiply) into Vec3 vector, another Vec3 vector 
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3& operator*=(const Vec3 &v);
@@ -114,7 +118,7 @@ class Vec3 {
 		/**
 		 * @brief Multiply two Vec3 vectors values
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator*(const Vec3 &v);
@@ -122,7 +126,7 @@ class Vec3 {
 		/**
 		 * @brief Multiply Vec3 vector values by a constant t value
 		 * 
-		 * @param t double - Operation right side
+		 * @param t:double - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator*(double t);
@@ -130,7 +134,7 @@ class Vec3 {
 		/**
 		 * @brief Accumulate (divide) into Vec3 vector, another Vec3 vector 
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3& operator/=(const Vec3 &v);
@@ -138,16 +142,15 @@ class Vec3 {
 		/**
 		 * @brief Divide two Vec3 vectors values
 		 * 
-		 * @param v Vec3 - Operation right side
+		 * @param v:Vec3 - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator/(const Vec3 &v);
 
-
 		/**
 		 * @brief Divide Vec3 vector values by a constant t value
 		 * 
-		 * @param t double - Operation right side
+		 * @param t:double - Operation right side
 		 * @return Vec3& 
 		 */
 		Vec3 operator/(double t);
@@ -155,8 +158,8 @@ class Vec3 {
 		/**
 		 * @brief 
 		 * 
-		 * @param out std::ostream pointer to output - Operation left side
-		 * @param v Vec3 - Operation right side
+		 * @param out:std::ostream pointer to output - Operation left side
+		 * @param v:Vec3 - Operation right side
 		 * @return std::ostream& 
 		 */
 		friend std::ostream& operator<<(std::ostream &out, const Vec3 &v);
