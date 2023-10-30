@@ -31,7 +31,9 @@ class Image {
 		 * @brief Save image to .ppm format
 		 * 
 		 */
-		void saveToPPM();
+		  void saveToPPM(std::string fileName);
+
+			void SaveToJpeg(std::string fileName);
 
 	private:
 		bool checkPosition(int x, int y);
