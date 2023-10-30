@@ -1,5 +1,6 @@
 #include "../src/lib/Vec3/Vec3.hpp"
 #include "gtest/gtest.h"
+#include <sstream>
 
 // Test Vec3::x()
 TEST(Vec3LibTest, GetX) {
@@ -108,4 +109,114 @@ TEST(Vec3LibTest, PlusDoubleOperator) {
 
 	EXPECT_EQ(expected_v1, actual_v1);
 	EXPECT_EQ(expected_v2, actual_v2);
+}
+
+// Test Vec3::operator*=(const Vec3 &v)
+TEST(Vec3LibTest, MultiplyEqualsVec3Operator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2(1, 2, 3);
+
+	v1 *= v2;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string expected_v1 = Vec3(1, 4, 9).to_string();
+	std::string expected_v2 = Vec3(1, 2, 3).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+}
+
+// Test Vec3::operator*(const Vec3 &v)
+TEST(Vec3LibTest, MultiplyVec3Operator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2(1, 2, 3);
+
+	Vec3 v3 = v1 * v2;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string actual_v3 = v3.to_string();
+	std::string expected_v1 = Vec3(1, 2, 3).to_string();
+	std::string expected_v2 = Vec3(1, 2, 3).to_string();
+	std::string expected_v3 = Vec3(1, 4, 9).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+	EXPECT_EQ(expected_v3, actual_v3);
+}
+
+// Test Vec3::operator*(double t)
+TEST(Vec3LibTest, MultiplyDoubleOperator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2 = v1 * 10;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string expected_v1 = Vec3(1, 2, 3).to_string();
+	std::string expected_v2 = Vec3(10, 20, 30).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+}
+
+// Test Vec3::operator/=(const Vec3 &v)
+TEST(Vec3LibTest, DivideEqualsVec3Operator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2(1, 2, 3);
+
+	v1 /= v2;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string expected_v1 = Vec3(1, 1, 1).to_string();
+	std::string expected_v2 = Vec3(1, 2, 3).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+}
+
+// Test Vec3::operator/(const Vec3 &v)
+TEST(Vec3LibTest, DivideVec3Operator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2(1, 2, 3);
+
+	Vec3 v3 = v1 / v2;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string actual_v3 = v3.to_string();
+	std::string expected_v1 = Vec3(1, 2, 3).to_string();
+	std::string expected_v2 = Vec3(1, 2, 3).to_string();
+	std::string expected_v3 = Vec3(1, 1, 1).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+	EXPECT_EQ(expected_v3, actual_v3);
+}
+
+// Test Vec3::operator/(double t)
+TEST(Vec3LibTest, DivideDoubleOperator) {
+	Vec3 v1(1, 2, 3);
+	Vec3 v2 = v1 / 10;
+
+	std::string actual_v1 = v1.to_string();
+	std::string actual_v2 = v2.to_string();
+	std::string expected_v1 = Vec3(1, 2, 3).to_string();
+	std::string expected_v2 = Vec3(0.1, 0.2, 0.3).to_string();
+
+	EXPECT_EQ(expected_v1, actual_v1);
+	EXPECT_EQ(expected_v2, actual_v2);
+}
+
+TEST(Vec3LibTest, StreamOperator) {
+		Vec3 vec(1, 2, 3);
+
+		std::ostringstream actual;
+		std::ostringstream expected;
+
+		actual << vec.to_string();
+		expected << "1 2 3";
+
+		EXPECT_EQ(actual.str(), expected.str());
 }
