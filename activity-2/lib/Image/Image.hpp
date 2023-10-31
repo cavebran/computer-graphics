@@ -3,6 +3,10 @@
 
 #include "../Color/Color.hpp"
 #include <vector>
+#include <stdexcept>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 
 /**
  * @brief Implements funcionalities to create images

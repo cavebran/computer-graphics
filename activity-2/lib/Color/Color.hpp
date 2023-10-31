@@ -2,6 +2,7 @@
 #define COLOR_H
 
 #include "../Vec3/Vec3.hpp"
+#include <stdexcept>
 
 /**
  * @brief Implements funcionalities for manipulate Color objects
@@ -28,4 +29,4 @@ class Color : public Vec3 {
 		double adjustColor(int color);
 };	
 
-#endif
+#endif //COLOR.H

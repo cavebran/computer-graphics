@@ -2,7 +2,6 @@
 #include "../lib/Pixel/Pixel.hpp"
 #include <iostream>
 
-
 int main() {
 	int imageWidth = 900;
 	int imageHeight = 600;

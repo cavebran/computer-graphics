@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+
+# Nome da atividade 2
+SET(ACTIVITY_NAME activity-2)
+
+SET(ColorLibrary ${ACTIVITY_NAME}_ColorLibrary)
+SET(ImageLibrary ${ACTIVITY_NAME}_ImageLibrary)
+SET(Vec3Library ${ACTIVITY_NAME}_Vec3Library)
+
+ADD_SUBDIRECTORY(lib/Color)
+ADD_SUBDIRECTORY(lib/Image)
+ADD_SUBDIRECTORY(lib/Vec3)
+
+ADD_SUBDIRECTORY(main)
+ADD_SUBDIRECTORY(tests)

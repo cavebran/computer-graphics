@@ -1,5 +1,6 @@
 /.vs
 /.vscode
+/.build
 
 /bazel-Bazel_with_GTest
 /bazel-bin

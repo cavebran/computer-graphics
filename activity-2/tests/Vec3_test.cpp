@@ -1,5 +1,5 @@
-#include "../src/lib/Vec3/Vec3.hpp"
-#include "gtest/gtest.h"
+#include "../lib/Vec3/Vec3.hpp"
+#include <gtest/gtest.h>
 #include <sstream>
 
 // Test Vec3::x()

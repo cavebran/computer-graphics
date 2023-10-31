@@ -24,9 +24,10 @@ Este repositório é dedicado ao armazenamento de atividades relacionadas à dis
 
 Links úteis para o desenvolvimento do projeto:
 * [C++](https://devdocs.io/cpp/)
-* [Bazel](https://bazel.build/)
+* [CMake](https://cmake.org/)
 * [Doxygen](https://www.doxygen.nl/manual/index.html)
 * [Google Test](https://github.com/google/googletest)
+* [Bash Script](https://devdocs.io/bash/)
 * [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 
 <p align="right"><a href="#top">↑</a></p>
@@ -34,39 +35,67 @@ Links úteis para o desenvolvimento do projeto:
 ## 🚀 Como Compilar e Executar
 
 ### Pré-requisitos
-- Certifique-se de ter a ferramenta auxiliar de compilação [**Bazel**](https://bazel.build/), instalada em seu ambiente de desenvolvimento. Versão utilizada no projeto - **6.3.2**.
+- Certifique-se de ter a ferramenta auxiliar de compilação [**CMake**](https://cmake.org/).
 
-### Como compilar uma atividade:
-**&#8594; Para compilar:**  Em seu terminal execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada (*exemplo:* `activity-1`) e `[activity_main]` pelo arquivo principal de execução (*exemplo:* `colombia`). 
+### Como compilar:
+Atualmente só é possível compilar todas as atividades de uma vez.
+
+**&#8594; Para compilar:**  Em seu terminal, entre no diretório raiz `'/'` do projeto e então utilize o [*Bash Script*](https://devdocs.io/bash/) **`bran.sh`** com o comando: 
 ```shell
-bazel build [activity_name]/src/main:[activity_main]
+sh bran.sh build
 ```
 
-**&#8594; O binário gerado fica localizado em:** <br/>
-`bazel-bin/[activity_name]/src/main/[activity_main]`
+OU
 
-> `bazel-bin` é um diretório criado automaticamente pela sucesso da execução do comando `bazel build` ou `bazel run`.
+```shell
+./bran.sh build
+```
+
+**Observação:** os arquivos binários de execução da pasta **main** (independente de qual atividade), quando compilados ficam armazenados com um nome diferente do arquivo de implementação *.cpp*. Seu nome segue o padrão `'<activity-n>_<nome_do_arquivo.cpp>'`. Isso é necessário para evitar conflitos de nomes de arquivos quando é realizado o processo de *link* dos *headers* e *sources* das *libs*.
+
+**&#8594; Os binários gerados ficam localizados em:** `'/.build/'`
+
+> `.build/` é um diretório criado automaticamente pelo sucesso do processo de build através do *Bash Script* **`bran.sh`**, sempre no diretório raiz `'/'` do projeto.
 <hr>
 
 ### Como executar uma atividade:
-Existem duas opções ao executar uma atividade, direto pelo bazel, ou utilizando o binário gerado através do comando `bazel build` descrito no tópico de *"Como compilar uma atividade"*.
+Existem duas opções ao executar uma atividade, através do *Bash Script* **`bran.sh`**, ou executando diretamente os binários gerados.
 
-**&#8594; Método tradicional:** Chame o mecanismo padrão de execução do Linux, apontando o caminho para o arquivo binário compilado.
+**&#8594; Método tradicional:** Chame o mecanismo padrão de execução do Linux, apontando o caminho para o arquivo binário compilado. Exemplo:
 
-**&#8594; Utilizando Bazel:** Em seu terminal execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada (*exemplo:* `activity-1`) e `[activity_main]` pelo arquivo principal de execução (*exemplo:* `colombia`). 
 ```shell
-bazel run [activity_name]/src/main:[activity_main]
+./build/activity-1/main/activity-1_colombia
 ```
 
-## 📎Guias e referências extras
-Bazel Project Structure Reference: 
-- [Github Bazel Template (C++)](https://github.com/ourarash/cpp-template)
-- [GTest, GLog, Starter Bazel Repo Youtube Video Guide](https://www.youtube.com/watch?v=JfOzsBi_irY&ab_channel=arisaif)
-- [Bazel Template (C++) Youtube Video Guide](https://www.youtube.com/watch?v=kLLDzLWzuag&ab_channel=arisaif)
-- [How to Debug in VSCode with Bazel (C++)](https://www.youtube.com/watch?v=-TUogVOs1Qg&ab_channel=arisaif)
-- [Google Test for C++ using Bazel](https://google.github.io/googletest/quickstart-bazel.html)
+**&#8594; Utilizando *Bash Script*:** Em seu terminal, no diretório raiz `'/'` do projeto, execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada - *`exemplo:`* **`activity-1`** e `[activity_main]` pelo arquivo binário de execução - *`exemplo:`* **`activity-1_colombia`**. 
+```shell
+sh bran.sh run <activity_name> <activity_main>
+```
 
+### Como testar uma atividade:
+Algumas atividades possuirão testes unitários, para rodar os testes, basta utilizar o *Bash Script* **`bran.sh`**. Existem duas opções de testes, teste diretamente em um arquivo de teste específico de determinada atividade e teste para todos os arquivos de testes de uma atividade, respectivamente:
+```shell
+sh bran.sh test <activity_name> <test_file>
+```
 
+OU
+
+```shell
+sh bran.sh test <activity_name>
+```
+
+### Maiores informações sobre o *Bash Script* **`bran.sh`**:
+- Todos os comandos só funcionarão se o diretório atual do terminal for o diretório raiz `'/'` do projeto.
+- Para visualizar todos os comandos, suas utilidades e como usá-los, use o comando:
+	```shell
+		sh bran.sh help
+	```
+
+## 📎Guias e referências extras utilizadas
+CMake Project Structure Reference: 
+- [CMake Tutorial - Youtube Playlist](https://www.youtube.com/watch?v=nlKcXPUJGwA&list=PLalVdRk2RC6o5GHu618ARWh0VO0bFlif4)
+- [GTest and CMake - Youtube Video Guide](https://www.youtube.com/watch?v=Lp1ifh9TuFI)
+- [Google Test for C++](https://google.github.io/googletest/)
 <hr>
 
 <table>
