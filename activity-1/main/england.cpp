@@ -26,5 +26,5 @@ int main() {
 		}
 	}
 
-	england.saveToPPM("england.ppm");
+	england.saveToPPM("england");
 }

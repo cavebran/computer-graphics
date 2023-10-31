@@ -23,5 +23,5 @@ int main() {
 		}
 	}
 
-	france.saveToPPM("france.ppm");
+	france.saveToPPM("france");
 }
