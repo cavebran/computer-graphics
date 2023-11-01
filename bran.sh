@@ -40,7 +40,7 @@ run_activity_file() {
     else
         echo "Arquivo não encontrado."
 				build
-				echo ""
+				echo "\033c"
         if [ -f ".build/$1/main/$1_$2" ]; then
             .build/$1/main/$1_$2
 						echo "Arquivo executado!"
@@ -59,7 +59,7 @@ run_test_file() {
     else
         echo "Arquivo de teste não encontrado."
         build
-        echo ""
+        echo "\033c"
         if [ -f ".build/$1/tests/$1_$2" ]; then
             .build/$1/tests/$1_$2
             echo "Teste executado!"
@@ -73,6 +73,7 @@ run_test_file() {
 
 run_all_tests() {
 		build
+		echo "\033c"
     if [ -d ".build/$1/tests" ]; then
         for test_file in .build/$1/tests/*_test*; do
             ./$test_file
