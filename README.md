@@ -36,6 +36,7 @@ Links úteis para o desenvolvimento do projeto:
 
 ### Pré-requisitos
 - Certifique-se de ter a ferramenta auxiliar de compilação [**CMake**](https://cmake.org/).
+- Um compilador para C++.
 
 ### Como compilar:
 Atualmente só é possível compilar todas as atividades de uma vez.
@@ -51,7 +52,12 @@ OU
 ./bran.sh build
 ```
 
-**Observação:** os arquivos binários de execução da pasta **main** (independente de qual atividade), quando compilados ficam armazenados com um nome diferente do arquivo de implementação *.cpp*. Seu nome segue o padrão `'<activity-n>_<nome_do_arquivo.cpp>'`. Isso é necessário para evitar conflitos de nomes de arquivos quando é realizado o processo de *link* dos *headers* e *sources* das *libs*.
+**Observação:** os arquivos binários de execução da pasta **main** (independente de qual atividade), quando compilados ficam armazenados com um nome diferente do arquivo de implementação *.cpp*. Seu nome segue o padrão `'<activity-n>_<nome_do_arquivo.cpp>'`. Isso é necessário para evitar conflitos de nomes de arquivos quando é realizado o processo de *link* dos *headers* e *sources* das *libs*. Porém ao utilizar os comandos de `run` ou `test`, não é necessário se atentar a este detalhe, só passe o nome do arquivo que deseja executar ou testar, sem a extensão de arquivo. Por exemplo: <br/>
+- Atividade em que o arquivo se encontra: `activity-1`
+- Arquivo fonte que é usado para compilar: `colombia.cpp`
+- Arquivo binário gerado ao compilar: `activity-1_colombia`
+
+Ao executar o comando `run` ou `test`, passe apenas o nome do arquivo fonte usado para compilar sem o *.cpp*. Mais detalhes a frente na documentação.
 
 **&#8594; Os binários gerados ficam localizados em:** `'/.build/'`
 
@@ -67,7 +73,7 @@ Existem duas opções ao executar uma atividade, através do *Bash Script* **`br
 ./build/activity-1/main/activity-1_colombia
 ```
 
-**&#8594; Utilizando *Bash Script*:** Em seu terminal, no diretório raiz `'/'` do projeto, execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada - *`exemplo:`* **`activity-1`** e `[activity_main]` pelo arquivo binário de execução - *`exemplo:`* **`activity-1_colombia`**. 
+**&#8594; Utilizando *Bash Script*:** Em seu terminal, no diretório raiz `'/'` do projeto, execute o comando descrito a seguir. Troque `[activity_name]` pela atividade que será compilada - *`exemplo:`* **`activity-1`** e `[activity_main]` pelo arquivo binário de execução - *`exemplo:`* **`colombia`**. 
 ```shell
 sh bran.sh run <activity_name> <activity_main>
 ```
@@ -75,7 +81,7 @@ sh bran.sh run <activity_name> <activity_main>
 ### Como testar uma atividade:
 Algumas atividades possuirão testes unitários, para rodar os testes, basta utilizar o *Bash Script* **`bran.sh`**. Existem duas opções de testes, teste diretamente em um arquivo de teste específico de determinada atividade e teste para todos os arquivos de testes de uma atividade, respectivamente:
 ```shell
-sh bran.sh test <activity_name> <test_file>
+sh bran.sh test <activity_name> <activity_test>
 ```
 
 OU

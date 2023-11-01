@@ -7,6 +7,7 @@ help() {
     echo "Comandos disponíveis:"
     echo "  build                              - Cria a pasta .build, executa o cmake e faz o build com make."
     echo "  clear                              - Remove o conteúdo da pasta .build."
+		echo "  cbuild                             - Executa o clear e em seguida o build"
     echo "  run <nome_da_atividade> <arquivo>  - Executa o arquivo especificado na atividade."
 		echo "  test <nome_da_atividade>           - Executa todos os testes especificado na atividade."
 		echo "  test <nome_da_atividade> <arquivo> - Executa o teste especificado na atividade."
@@ -32,15 +33,16 @@ clear() {
 }
 
 run_activity_file() {
-    if [ -f ".build/$1/main/$2" ]; then
-        .build/$1/main/$2
+		echo ".build/$1/main/$1_$2"
+    if [ -f ".build/$1/main/$1_$2" ]; then
+        .build/$1/main/$1_$2
 				echo "Arquivo executado!"
     else
         echo "Arquivo não encontrado."
 				build
 				echo ""
-        if [ -f ".build/$1/main/$2" ]; then
-            .build/$1/main/$2
+        if [ -f ".build/$1/main/$1_$2" ]; then
+            .build/$1/main/$1_$2
 						echo "Arquivo executado!"
         else
             echo "Arquivo não encontrado!"
@@ -51,15 +53,15 @@ run_activity_file() {
 }
 
 run_test_file() {
-    if [ -f ".build/$1/tests/$2" ]; then
-        .build/$1/tests/$2
+    if [ -f ".build/$1/tests/$1_$2" ]; then
+        .build/$1/tests/$1_$2
         echo "Teste executado!"
     else
         echo "Arquivo de teste não encontrado."
         build
         echo ""
-        if [ -f ".build/$1/tests/$2" ]; then
-            .build/$1/tests/$2
+        if [ -f ".build/$1/tests/$1_$2" ]; then
+            .build/$1/tests/$1_$2
             echo "Teste executado!"
         else
             echo "Arquivo de teste não encontrado!"
@@ -69,17 +71,8 @@ run_test_file() {
     fi
 }
 
-run_test_file() {
-    if [ -f ".build/$1/tests/$2" ]; then
-        .build/$1/tests/$2
-        echo "Teste executado!"
-    else
-        echo "Nenhum teste encontrado para $1 e $2"
-        exit 1
-    fi
-}
-
 run_all_tests() {
+		build
     if [ -d ".build/$1/tests" ]; then
         for test_file in .build/$1/tests/*_test*; do
             ./$test_file
@@ -105,6 +98,10 @@ case "$1" in
     "clear")
         clear
         ;;
+		"cbuild")
+			clear
+			build
+			;;
     "run")
         if [ $# -ne 3 ]; then
             echo "Uso: ./bran.sh run <nome_da_atividade> <arquivo_binário>"
