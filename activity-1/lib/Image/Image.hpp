@@ -3,6 +3,9 @@
 
 #include "../Pixel/Pixel.hpp"
 #include <vector>
+#include <iostream>
+#include <fstream>
+
 
 /**
  * @brief Implements funcionalities to create images

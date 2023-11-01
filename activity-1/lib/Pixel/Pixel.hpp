@@ -2,6 +2,7 @@
 #define PIXEL_HPP
 
 #include <string>
+#include <iostream>
 
 /**
  * @brief Implements funcionalities to create pixels

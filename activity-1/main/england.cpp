@@ -1,6 +1,5 @@
 #include "../lib/Image/Image.hpp"
 #include "../lib/Pixel/Pixel.hpp"
-#include <iostream>
 
 int main() {
 	int imageWidth = 900;

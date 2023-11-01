@@ -1,6 +1,4 @@
 #include "Image.hpp"
-#include <iostream>
-#include <fstream>
 
 Image::Image(int w, int h) : width(w), height(h) {
     canvas.resize(height, std::vector<Pixel>(width, Pixel(100, 100, 100)));
