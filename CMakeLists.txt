@@ -10,6 +10,7 @@ SET(CMAKE_CXX_STANDARD 14)
 # Adiciona as atividades
 ADD_SUBDIRECTORY(activity-1)
 ADD_SUBDIRECTORY(activity-2)
+ADD_SUBDIRECTORY(activity-3)
 
 # Baixa dependências externas
 INCLUDE(FetchContent)
