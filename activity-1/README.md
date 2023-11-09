@@ -11,8 +11,8 @@
 <!-- LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/cavebran/cg-atividade-1">
-    <img src="https://www.flagcolorcodes.com/data/flag-of-france.png" alt="Logo" width="100" height="66">
+  <a href="https://github.com/cavebran/computer-graphics/tree/main/activity-1">
+	  <img src="https://www.flagcolorcodes.com/data/flag-of-france.png" alt="Logo" width="100" height="66">
     <img src=https://www.flagcolorcodes.com/data/Flag-of-England.png" alt="Logo" width="100" height="66">
     <img src="https://www.flagcolorcodes.com/data/flag-of-colombia.png" alt="Logo" width="100" height="66">
   </a>
@@ -26,7 +26,7 @@ Este repositório contém um exercício prático da disciplina de Computação G
 O programa em C++ foi feito com tema de bandeiras. No momento, oferecemos suporte para as bandeiras da França, Inglaterra e Colômbia.
 
 ## 🚀 Conversão PPM para JPG
-
+A conversão de imagens .ppm para .jpg foi realizada a partir do uso da biblioteca ``"nome_da_lib"`` e é ``assim que faz **#TODO**` para converter.
 
 <hr>
 
