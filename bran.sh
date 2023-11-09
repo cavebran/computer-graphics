@@ -24,7 +24,7 @@ build() {
     make
     cd ..
 
-		echo "Build executado com sucesso!"
+		echo "\nBuild executado com sucesso!"
 }
 
 # Função para limpar o conteúdo da pasta .build
@@ -36,14 +36,14 @@ run_activity_file() {
 		echo ".build/$1/main/$1_$2"
     if [ -f ".build/$1/main/$1_$2" ]; then
         .build/$1/main/$1_$2
-				echo "Arquivo executado!"
+				echo "\nArquivo executado!"
     else
         echo "Arquivo não encontrado."
 				build
 				echo "\033c"
         if [ -f ".build/$1/main/$1_$2" ]; then
             .build/$1/main/$1_$2
-						echo "Arquivo executado!"
+						echo "\nArquivo executado!"
         else
             echo "Arquivo não encontrado!"
 						echo "Certifique-se que o nome da atividade ou do arquivo binário estão corretos."
@@ -55,14 +55,14 @@ run_activity_file() {
 run_test_file() {
     if [ -f ".build/$1/tests/$1_$2" ]; then
         .build/$1/tests/$1_$2
-        echo "Teste executado!"
+        echo "\nTeste executado!"
     else
         echo "Arquivo de teste não encontrado."
         build
         echo "\033c"
         if [ -f ".build/$1/tests/$1_$2" ]; then
             .build/$1/tests/$1_$2
-            echo "Teste executado!"
+            echo "\nTeste executado!"
         else
             echo "Arquivo de teste não encontrado!"
             echo "Certifique-se que o nome da atividade ou do arquivo de teste estão corretos."
@@ -77,7 +77,7 @@ run_all_tests() {
     if [ -d ".build/$1/tests" ]; then
         for test_file in .build/$1/tests/*_test*; do
             ./$test_file
-            echo "Teste executado: $test_file"
+            echo "\nTeste executado: $test_file"
         done
     else
         echo "Nenhum teste encontrado para $1"
