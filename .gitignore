@@ -10,6 +10,8 @@
 /bazel-template
 /bazel-*
 
+
+
 # Prerequisites
 *.d
 
@@ -17,7 +19,7 @@
 *.slo
 *.lo
 *.o
-*.obj
+# *.obj
 
 # Precompiled Headers
 *.gch
