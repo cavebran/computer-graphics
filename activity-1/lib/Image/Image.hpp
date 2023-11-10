@@ -3,6 +3,9 @@
 
 #include "../Pixel/Pixel.hpp"
 #include <vector>
+#include <iostream>
+#include <fstream>
+
 
 /**
  * @brief Implements funcionalities to create images
@@ -42,7 +45,7 @@ public:
 	 * 
 	 * @param fileName: std::string - file name to save
 	 */
-	void SaveToJpeg(std::string fileName);
+	void saveToJpeg(std::string fileName);
 };
 
 #endif

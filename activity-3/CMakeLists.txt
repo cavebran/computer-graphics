@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+
+# Nome da atividade
+SET(ACTIVITY_NAME activity-3)
+
+SET(ObjLibrary ${ACTIVITY_NAME}_ObjLibrary)
+SET(ObjFileLibrary ${ACTIVITY_NAME}_ObjFileLibrary)
+SET(Vec3Library ${ACTIVITY_NAME}_Vec3Library)
+
+ADD_SUBDIRECTORY(lib/Obj)
+ADD_SUBDIRECTORY(lib/ObjFile)
+ADD_SUBDIRECTORY(lib/Vec3)
+
+ADD_SUBDIRECTORY(main)
+ADD_SUBDIRECTORY(tests)
