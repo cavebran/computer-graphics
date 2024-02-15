@@ -1,0 +1,1 @@
+ADD_LIBRARY(${Vec2Library} Vec2.cpp Vec2.hpp)
